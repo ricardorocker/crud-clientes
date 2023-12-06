@@ -1,6 +1,28 @@
-<div class="heading">CLIENTES</div>
-
-<img src="../assets/logo-safra.svg" alt="" width="400">
-<div style="background-color: black;">
-  <img src="../assets/icon-hamburger-30.svg" alt="" width="400">
+<div class="navbar">
+  <img
+  src="../assets/icon-hamburger-30.svg"
+  alt="Menu Options"
+  width="26"
+  />
+  <img
+  src="../assets/logo-safra.svg"
+  alt="Logotipo Safra Financeira"
+  height="30"
+  />
 </div>
+
+<div class="heading">{{ "Clientes" | uppercase }}</div>
+
+<button class="btn btn-primary">{{ "Adicionar Cliente" | uppercase }}</button>
+<button class="btn btn-default">{{ "Cancelar" | uppercase }}</button>
+
+<div class="table-first-row">{{ "Teste 01" | uppercase }}</div>
+<div class="table-row">{{ "Teste 02" | uppercase }}</div>
+<div class="card">{{ "Teste 03" | uppercase }}</div>
+
+<div class="form-group">
+  <label class="label">Nome Cliente:</label>
+  <input class="input" type="text" value="Ricardo Santos Rocker" />
+</div>
+
+<input type="checkbox" class="checkbox">

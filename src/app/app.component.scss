@@ -1,5 +1,10 @@
 @import '../styles.scss';
 
+.navbar {
+  background-color: var(--color-brand-primary-darkest);
+  padding: 12px 22px;
+}
+
 .heading {
   color: var(--color-brand-primary-medium);
   font-weight: var(--fontweight-extra-bold);
