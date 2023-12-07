@@ -17,10 +17,10 @@
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" (click)="redirect()">
         {{ "Adicionar Cliente" | uppercase }}
       </button>
-      <button class="btn btn-primary">{{ "Visualizar" | uppercase }}</button>
+      <button class="btn btn-primary" (click)="redirect()">{{ "Visualizar" | uppercase }}</button>
       <button class="btn btn-primary">{{ "Remover" | uppercase }}</button>
     </div>
   </div>
