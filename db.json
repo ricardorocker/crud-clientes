@@ -1,19 +1,13 @@
 {
-  "posts": [
+  "clientes": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "nome": "Ricardo Santos Rocker",
+      "cpf": "442.672.838-00",
+      "dataNascimento": "04/09/1995",
+      "rendaMensal": 24400,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "04/09/1995"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
