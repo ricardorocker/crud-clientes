@@ -1,41 +1,47 @@
 <div class="container">
-  <div class="heading">{{ "Adicionar Cliente" | uppercase }}</div>
+  <div class="container-client">
+    <div class="heading">{{ "Adicionar Cliente" | uppercase }}</div>
 
-  <div class="form">
-    <div class="grid-container">
-      <div class="form-group col">
-        <label class="label">Nome Cliente:</label>
-        <input class="input" type="text" value="Ricardo Santos Rocker" />
-      </div>
-      <div class="form-group col">
-        <label class="label">CPF:</label>
-        <input class="input" type="text" value="442.678.864-44" />
-      </div>
-      <div class="form-group col">
-        <label class="label">Data Nascimento:</label>
-        <input class="input" type="text" value="04/09/1995" />
-      </div>
-      <div class="form-group col">
-        <label class="label">Renda Mensal:</label>
-        <input class="input" type="number" value="24400" />
-      </div>
-      <div class="form-group col">
-        <label class="label">E-mail:</label>
-        <input
-          class="input"
-          type="email"
-          value="ricardo.santos.rocker@gmail.com"
-        />
-      </div>
-      <div class="form-group col">
-        <label class="label">Data Cadastro:</label>
-        <input class="input" type="date" value="07/12/2023" />
+    <div class="form">
+      <div class="grid-container">
+        <div class="form-group col">
+          <label class="label">Nome Cliente:</label>
+          <input class="input" type="text" value="Ricardo Santos Rocker" />
+        </div>
+        <div class="form-group col">
+          <label class="label">CPF:</label>
+          <input class="input" type="text" value="442.678.864-44" />
+        </div>
+        <div class="form-group col">
+          <label class="label">Data Nascimento:</label>
+          <input class="input" type="text" value="04/09/1995" />
+        </div>
+        <div class="form-group col">
+          <label class="label">Renda Mensal:</label>
+          <input class="input" type="number" value="24400" />
+        </div>
+        <div class="form-group col">
+          <label class="label">E-mail:</label>
+          <input
+            class="input"
+            type="email"
+            value="ricardo.santos.rocker@gmail.com"
+          />
+        </div>
+        <div class="form-group col">
+          <label class="label">Data Cadastro:</label>
+          <input class="input" type="date" value="07/12/2023" />
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="actions">
-    <button class="btn btn-default" (click)="redirect()">{{ "Cancelar" | uppercase }}</button>
-    <button class="btn btn-primary" (click)="redirect()">{{ "Adicionar" | uppercase }}</button>
+    <div class="actions">
+      <button class="btn btn-default" (click)="redirect()">
+        {{ "Cancelar" | uppercase }}
+      </button>
+      <button class="btn btn-primary" (click)="redirect()">
+        {{ "Adicionar" | uppercase }}
+      </button>
+    </div>
   </div>
 </div>
