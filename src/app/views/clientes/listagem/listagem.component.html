@@ -1,0 +1,75 @@
+<div class="heading">{{ "Clientes" | uppercase }}</div>
+
+<div class="container">
+  <div class="header">
+    <div class="filters">
+      <div class="form-group">
+        <label class="label">Nome Cliente:</label>
+        <input class="input" type="text" value="Ricardo Santos Rocker" />
+      </div>
+      <div class="form-group">
+        <label class="label">CPF:</label>
+        <input class="input" type="text" value="442.678.864-44" />
+      </div>
+      <div class="form-group">
+        <label class="label">Data Nascimento:</label>
+        <input class="input" type="text" value="04/09/1995" />
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary">
+        {{ "Adicionar Cliente" | uppercase }}
+      </button>
+      <button class="btn btn-primary">{{ "Visualizar" | uppercase }}</button>
+      <button class="btn btn-primary">{{ "Remover" | uppercase }}</button>
+    </div>
+  </div>
+
+  <table style="width: 100%; padding: 38px 0">
+    <div class="table-header">
+      <tr>
+        <th style="width: 2%;">S</th>
+        <th style="width: 18%;">NOME</th>
+        <th style="width: 10%;">CPF</th>
+        <th style="width: 10%;">DATA CADASTRO</th>
+        <th style="width: 10%;">RENDA MENSAL</th>
+      </tr>
+    </div>
+    <div class="table-row row-odd">
+      <tr>
+        <td style="width: 2%;"><input type="checkbox" class="checkbox" /></td>
+        <td style="width: 18%;">RICARDO SANTOS ROCKER</td>
+        <td style="width: 10%;">442.678.864-44</td>
+        <td style="width: 10%;">07/12/2023</td>
+        <td style="width: 10%;">{{ 24400 | currency : "BRL" : true }}</td>
+      </tr>
+    </div>
+    <div class="table-row row-even">
+      <tr>
+        <td style="width: 2%;"><input type="checkbox" class="checkbox" /></td>
+        <td style="width: 18%;">RICARDO SANTOS ROCKER</td>
+        <td style="width: 10%;">442.678.864-44</td>
+        <td style="width: 10%;">07/12/2023</td>
+        <td style="width: 10%;">{{ 24400 | currency : "BRL" : true }}</td>
+      </tr>
+    </div>
+    <div class="table-row row-odd">
+      <tr>
+        <td style="width: 2%;"><input type="checkbox" class="checkbox" /></td>
+        <td style="width: 18%;">RICARDO SANTOS ROCKER</td>
+        <td style="width: 10%;">442.678.864-44</td>
+        <td style="width: 10%;">07/12/2023</td>
+        <td style="width: 10%;">{{ 24400 | currency : "BRL" : true }}</td>
+      </tr>
+    </div>
+    <div class="table-row row-even">
+      <tr>
+        <td style="width: 2%;"><input type="checkbox" class="checkbox" /></td>
+        <td style="width: 18%;">RICARDO SANTOS ROCKER</td>
+        <td style="width: 10%;">442.678.864-44</td>
+        <td style="width: 10%;">07/12/2023</td>
+        <td style="width: 10%;">{{ 24400 | currency : "BRL" : true }}</td>
+      </tr>
+    </div>
+  </table>
+</div>
