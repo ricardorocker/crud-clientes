@@ -1,0 +1,23 @@
+.container {
+  padding: 28px 70px;
+}
+
+.form {
+  padding: 70px 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.btn {
+  width: 146px;
+}

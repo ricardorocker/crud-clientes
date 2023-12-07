@@ -1,8 +1,5 @@
 .heading {
-  color: var(--color-brand-primary-medium);
-  font-weight: var(--fontweight-extra-bold);
-  font-size: var(--fontsize-heading);
-  padding: 28px 70px;
+  padding: 28px 70px 0 70px;
 }
 
 .container {
@@ -22,5 +19,32 @@
 
 .actions {
   display: flex;
-  gap: 0 4px;
+  gap: 4px;
+}
+
+.table-header {
+  background-color: var(--color-brand-primary-light);
+  color: var(--color-neutral-white);
+  padding: 12px 28px;
+  border-radius: 40px 0 80px 40px;
+  font-size: var(--fontsize-paragraph);
+  font-weight: var(--fontweight-bold);
+  line-height: 150%;
+}
+
+.table-row {
+  color: var(--color-neutral-dark);
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-size: var(--fontsize-paragraph);
+  font-weight: var(--fontweight-bold);
+  line-height: 150%;
+}
+
+.row-odd {
+  background-color: var(--color-neutral-white);
+}
+
+.row-even {
+  background-color: var(--color-neutral-lightest);
 }
