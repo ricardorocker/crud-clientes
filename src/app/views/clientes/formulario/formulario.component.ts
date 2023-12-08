@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -7,9 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulario.component.scss'],
 })
 export class FormularioComponent {
-  constructor(private router: Router) {}
+  form: FormGroup;
+
+  constructor(private router: Router, private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      nome: [''],
+      cpf: [''],
+      dataNascimento: [''],
+      rendaMensal: [''],
+      email: [''],
+      dataCadastro: [''],
+    });
+  }
 
   redirect(): void {
+    this.router.navigateByUrl('clientes');
+  }
+
+  onSubmit() {
+    console.log(this.form.value);
     this.router.navigateByUrl('clientes');
   }
 }
