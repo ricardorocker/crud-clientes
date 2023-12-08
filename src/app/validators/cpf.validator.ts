@@ -3,7 +3,6 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 export function cpfValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const cpf = control.value;
-    console.log(cpf);
 
     if (!cpf) return null;
 

@@ -36,27 +36,17 @@ export class FormularioComponent {
   getErrorMessage(controlName: string, labelName?: string): string {
     const formControl = this.form.get(controlName);
 
-    if (formControl?.hasError('required') && formControl?.touched) {
-      return `${labelName} é obrigatório`;
-    }
+    if (formControl?.touched) {
+      const customErrors = ['nomeInvalido', 'cpfInvalido', 'idadeInvalida'];
 
-    if (controlName === 'nome' && formControl?.hasError('nomeInvalido')) {
-      return formControl.errors?.['message'];
-    }
-
-    if (controlName === 'cpf' && formControl?.hasError('cpfInvalido')) {
-      return formControl.errors?.['message'];
-    }
-
-    if (
-      controlName === 'dataNascimento' &&
-      formControl?.hasError('idadeInvalida')
-    ) {
-      return formControl.errors?.['message'];
-    }
-
-    if (controlName === 'email' && formControl?.hasError('email')) {
-      return 'E-mail inválido';
+      switch (true) {
+        case formControl?.hasError('required'):
+          return `${labelName} é obrigatório`;
+        case formControl?.hasError('email'):
+          return 'E-mail inválido';
+        case customErrors.some((error) => formControl?.hasError(error)):
+          return formControl.errors?.['message'];
+      }
     }
 
     return '';
