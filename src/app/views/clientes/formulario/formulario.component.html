@@ -3,78 +3,90 @@
     <div class="heading">{{ "Adicionar Cliente" | uppercase }}</div>
 
     <form [formGroup]="form" class="grid-container">
-      <div class="form-group col">
-        <label class="label">Nome Cliente:</label>
-        <input class="input" type="text" id="nome" formControlName="nome" />
-        <div *ngIf="getErrorMessage('nome')">
+      <div class="control">
+        <div class="form-group">
+          <label class="label">Nome Cliente:</label>
+          <input class="input" type="text" id="nome" formControlName="nome" />
+        </div>
+        <div class="error" *ngIf="getErrorMessage('nome')">
           {{ getErrorMessage("nome", "Nome") }}
         </div>
       </div>
-      <div class="form-group col">
-        <label class="label">CPF:</label>
-        <input
-          class="input"
-          type="text"
-          mask="000.000.000-00"
-          id="cpf"
-          placeholder="000.000.000-00"
-          formControlName="cpf"
-        />
-        <div *ngIf="getErrorMessage('cpf')">
+      <div class="control">
+        <div class="form-group">
+          <label class="label">CPF:</label>
+          <input
+            class="input"
+            type="text"
+            mask="000.000.000-00"
+            id="cpf"
+            placeholder="000.000.000-00"
+            formControlName="cpf"
+          />
+        </div>
+        <div class="error" *ngIf="getErrorMessage('cpf')">
           {{ getErrorMessage("cpf", "CPF") }}
         </div>
       </div>
-      <div class="form-group col">
-        <label class="label">Data Nascimento:</label>
-        <input
-          class="input"
-          type="date"
-          id="dataNascimento"
-          formControlName="dataNascimento"
-        />
-        <div *ngIf="getErrorMessage('dataNascimento')">
+      <div class="control">
+        <div class="form-group">
+          <label class="label">Data Nascimento:</label>
+          <input
+            class="input"
+            type="date"
+            id="dataNascimento"
+            formControlName="dataNascimento"
+          />
+        </div>
+        <div class="error" *ngIf="getErrorMessage('dataNascimento')">
           {{ getErrorMessage("dataNascimento", "Data de Nascimento") }}
         </div>
       </div>
-      <div class="form-group col">
-        <label class="label">Renda Mensal:</label>
-        <input
-          class="input"
-          type="text"
-          id="rendaMensal"
-          formControlName="rendaMensal"
-          prefix="R$"
-          mask="separator"
-          thousandSeparator="."
-          placeholder="R$0.000,00"
-        />
-        <div *ngIf="getErrorMessage('rendaMensal')">
+      <div class="control">
+        <div class="form-group">
+          <label class="label">Renda Mensal:</label>
+          <input
+            class="input"
+            type="text"
+            id="rendaMensal"
+            formControlName="rendaMensal"
+            prefix="R$"
+            mask="separator"
+            thousandSeparator="."
+            placeholder="R$0.000,00"
+          />
+        </div>
+        <div class="error" *ngIf="getErrorMessage('rendaMensal')">
           {{ getErrorMessage("rendaMensal", "Renda Mensal") }}
         </div>
       </div>
-      <div class="form-group col">
-        <label class="label">E-mail:</label>
-        <input
-          class="input"
-          type="email"
-          id="email"
-          formControlName="email"
-          required
-          email
-        />
-        <div *ngIf="getErrorMessage('email')">
+      <div class="control">
+        <div class="form-group">
+          <label class="label">E-mail:</label>
+          <input
+            class="input"
+            type="email"
+            id="email"
+            formControlName="email"
+            required
+            email
+          />
+        </div>
+        <div class="error" *ngIf="getErrorMessage('email')">
           {{ getErrorMessage("email", "E-mail") }}
         </div>
       </div>
-      <div class="form-group col">
-        <label class="label">Data Cadastro:</label>
-        <input
-          class="input"
-          type="date"
-          id="dataCadastro"
-          formControlName="dataCadastro"
-        />
-        <div *ngIf="getErrorMessage('dataCadastro')">
+      <div class="control">
+        <div class="form-group">
+          <label class="label">Data Cadastro:</label>
+          <input
+            class="input"
+            type="date"
+            id="dataCadastro"
+            formControlName="dataCadastro"
+          />
+        </div>
+        <div class="error" *ngIf="getErrorMessage('dataCadastro')">
           {{ getErrorMessage("dataCadastro", "Data de Cadastro") }}
         </div>
       </div>
