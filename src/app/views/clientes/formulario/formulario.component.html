@@ -13,6 +13,14 @@
         >
           Nome é obrigatório
         </div>
+        <div
+          *ngIf="
+            !(form.get('nome')?.value | sobrenomeValidator) &&
+            form.get('nome')?.touched
+          "
+        >
+          Nome Cliente deve possuir ao menos um sobrenome.
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">CPF:</label>

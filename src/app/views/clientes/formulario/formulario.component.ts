@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
+import { SobrenomeValidatorPipe } from 'src/app/pipes/sobrenome-validator.pipe';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
-  providers: [NgxMaskDirective],
+  providers: [SobrenomeValidatorPipe],
 })
 export class FormularioComponent {
   form: FormGroup;
