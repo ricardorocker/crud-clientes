@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Cliente } from 'src/app/models/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-listagem',
@@ -7,28 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./listagem.component.scss'],
 })
 export class ListagemComponent {
-  clientes = [
-    {
-      id: 1,
-      nome: 'Ricardo Santos Rocker',
-      cpf: '442.672.838-00',
-      dataNascimento: '04/09/1995',
-      rendaMensal: 24400,
-      email: 'ricardo.santos.rocker@gmail.com',
-      dataCadastro: '08/12/2023',
-    },
-    {
-      id: 2,
-      nome: 'Petrucia Lira Soares',
-      cpf: '121.672.458-00',
-      dataNascimento: '18/10/1997',
-      rendaMensal: 17400,
-      email: 'lira.petrucia@gmail.com',
-      dataCadastro: '09/12/2023',
-    },
-  ];
+  clientes$: Observable<Cliente[]>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private clienteService: ClienteService) {
+    this.clientes$ = this.clienteService.getAll();
+  }
 
   redirect(): void {
     this.router.navigate(['/clientes/formulario']);

@@ -39,7 +39,7 @@
         </tr>
       </div>
       <div
-        *ngFor="let cliente of clientes; index as i"
+        *ngFor="let cliente of clientes$ | async; index as i"
         [ngClass]="'tb-row tb-data ' + (i % 2 ? 'row-even' : 'row-odd')"
       >
         <tr>

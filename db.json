@@ -8,6 +8,15 @@
       "rendaMensal": 24400,
       "email": "ricardo.santos.rocker@gmail.com",
       "dataCadastro": "04/09/1995"
+    },
+    {
+      "id": 2,
+      "nome": "Petrucia Lira Soares",
+      "cpf": "121.672.458-00",
+      "dataNascimento": "18/10/1997",
+      "rendaMensal": 17400,
+      "email": "lira.petrucia@gmail.com",
+      "dataCadastro": "09/12/2023"
     }
   ]
 }
