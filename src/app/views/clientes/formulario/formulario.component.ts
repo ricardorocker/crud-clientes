@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { idadeValidator } from 'src/app/validators/idade.validator';
 import { nomeValidator } from 'src/app/validators/nome.validator';
 import { cpfValidator } from 'src/app/validators/cpf.validator';
@@ -46,6 +46,10 @@ export class FormularioComponent {
           })
         )
         .subscribe();
+    } else {
+      Object.values(this.form.controls).forEach((control: AbstractControl) => {
+        control.markAsTouched();
+      });
     }
   }
 
