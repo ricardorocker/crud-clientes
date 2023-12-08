@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListagemComponent } from './views/clientes/listagem/listagem.component';
 import { FormularioComponent } from './views/clientes/formulario/formulario.component';
+import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { FormularioComponent } from './views/clientes/formulario/formulario.comp
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxMaskDirective
   ],
-  providers: [],
+  providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
