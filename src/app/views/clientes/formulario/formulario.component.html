@@ -6,20 +6,8 @@
       <div class="form-group col">
         <label class="label">Nome Cliente:</label>
         <input class="input" type="text" id="nome" formControlName="nome" />
-        <div
-          *ngIf="
-            form.get('nome')?.hasError('required') && form.get('nome')?.touched
-          "
-        >
-          Nome é obrigatório
-        </div>
-        <div
-          *ngIf="
-            !(form.get('nome')?.value | sobrenomeValidator) &&
-            form.get('nome')?.touched
-          "
-        >
-          Nome Cliente deve possuir ao menos um sobrenome.
+        <div *ngIf="getErrorMessage('nome')">
+          {{ getErrorMessage("nome", "Nome") }}
         </div>
       </div>
       <div class="form-group col">
@@ -32,20 +20,8 @@
           placeholder="000.000.000-00"
           formControlName="cpf"
         />
-        <div
-          *ngIf="
-            form.get('cpf')?.hasError('required') && form.get('cpf')?.touched
-          "
-        >
-          CPF é obrigatório
-        </div>
-        <div
-          *ngIf="
-            (form.get('cpf')?.value | cpfValidator) !== 'válido' &&
-            form.get('cpf')?.touched
-          "
-        >
-          {{ form.get("cpf")?.value | cpfValidator }}
+        <div *ngIf="getErrorMessage('cpf')">
+          {{ getErrorMessage("cpf", "CPF") }}
         </div>
       </div>
       <div class="form-group col">
@@ -56,21 +32,8 @@
           id="dataNascimento"
           formControlName="dataNascimento"
         />
-        <div
-          *ngIf="
-            form.get('dataNascimento')?.hasError('required') &&
-            form.get('dataNascimento')?.touched
-          "
-        >
-          Data de Nascimento é obrigatório
-        </div>
-        <div
-          *ngIf="
-            form.get('dataNascimento')?.hasError('idadeInvalida') &&
-            form.get('dataNascimento')?.touched
-          "
-        >
-          Idade do cliente deve estar entre 18 e 60 anos.
+        <div *ngIf="getErrorMessage('dataNascimento')">
+          {{ getErrorMessage("dataNascimento", "Data de Nascimento") }}
         </div>
       </div>
       <div class="form-group col">
@@ -83,15 +46,10 @@
           prefix="R$"
           mask="separator"
           thousandSeparator="."
-          placeholder="R$00.000,00"
+          placeholder="R$0.000,00"
         />
-        <div
-          *ngIf="
-            form.get('rendaMensal')?.hasError('required') &&
-            form.get('rendaMensal')?.touched
-          "
-        >
-          Renda Mensal é obrigatório
+        <div *ngIf="getErrorMessage('rendaMensal')">
+          {{ getErrorMessage("rendaMensal", "Renda Mensal") }}
         </div>
       </div>
       <div class="form-group col">
@@ -104,20 +62,8 @@
           required
           email
         />
-        <div
-          *ngIf="
-            form.get('email')?.hasError('required') &&
-            form.get('email')?.touched
-          "
-        >
-          E-mail é obrigatório
-        </div>
-        <div
-          *ngIf="
-            form.get('email')?.hasError('email') && form.get('email')?.touched
-          "
-        >
-          E-mail invalido
+        <div *ngIf="getErrorMessage('email')">
+          {{ getErrorMessage("email", "E-mail") }}
         </div>
       </div>
       <div class="form-group col">
@@ -128,13 +74,8 @@
           id="dataCadastro"
           formControlName="dataCadastro"
         />
-        <div
-          *ngIf="
-            form.get('dataCadastro')?.hasError('required') &&
-            form.get('dataCadastro')?.touched
-          "
-        >
-          Data de Cadastro é obrigatório
+        <div *ngIf="getErrorMessage('dataCadastro')">
+          {{ getErrorMessage("dataCadastro", "Data de Cadastro") }}
         </div>
       </div>
     </form>

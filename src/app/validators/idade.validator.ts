@@ -20,7 +20,10 @@ export function idadeValidator(): ValidatorFn {
     if (idade >= 18 && idade < 60 && aniversarioOcorrido) {
       return null;
     } else {
-      return { idadeInvalida: true };
+      return {
+        idadeInvalida: true,
+        message: 'Idade do cliente deve estar entre 18 e 60 anos.',
+      };
     }
   };
 }
