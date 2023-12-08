@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
@@ -14,12 +14,12 @@ export class FormularioComponent {
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      nome: [''],
-      cpf: [''],
-      dataNascimento: [''],
-      rendaMensal: [''],
-      email: [''],
-      dataCadastro: [''],
+      nome: ['', Validators.required],
+      cpf: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
+      rendaMensal: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      dataCadastro: ['', Validators.required],
     });
   }
 
@@ -28,7 +28,7 @@ export class FormularioComponent {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    console.log(this.form);
     this.router.navigateByUrl('clientes');
   }
 }

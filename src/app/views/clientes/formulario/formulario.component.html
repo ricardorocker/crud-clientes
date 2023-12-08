@@ -6,6 +6,13 @@
       <div class="form-group col">
         <label class="label">Nome Cliente:</label>
         <input class="input" type="text" id="nome" formControlName="nome" />
+        <div
+          *ngIf="
+            form.get('nome')?.hasError('required') && form.get('nome')?.touched
+          "
+        >
+          Nome é obrigatório
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">CPF:</label>
@@ -17,6 +24,13 @@
           placeholder="000.000.000-00"
           formControlName="cpf"
         />
+        <div
+          *ngIf="
+            form.get('cpf')?.hasError('required') && form.get('cpf')?.touched
+          "
+        >
+          CPF é obrigatório
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">Data Nascimento:</label>
@@ -26,6 +40,14 @@
           id="dataNascimento"
           formControlName="dataNascimento"
         />
+        <div
+          *ngIf="
+            form.get('dataNascimento')?.hasError('required') &&
+            form.get('dataNascimento')?.touched
+          "
+        >
+          Data de Nascimento é obrigatório
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">Renda Mensal:</label>
@@ -39,10 +61,40 @@
           thousandSeparator="."
           placeholder="R$00.000,00"
         />
+        <div
+          *ngIf="
+            form.get('rendaMensal')?.hasError('required') &&
+            form.get('rendaMensal')?.touched
+          "
+        >
+          Renda Mensal é obrigatório
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">E-mail:</label>
-        <input class="input" type="email" id="email" formControlName="email" />
+        <input
+          class="input"
+          type="email"
+          id="email"
+          formControlName="email"
+          required
+          email
+        />
+        <div
+          *ngIf="
+            form.get('email')?.hasError('required') &&
+            form.get('email')?.touched
+          "
+        >
+          E-mail é obrigatório
+        </div>
+        <div
+          *ngIf="
+            form.get('email')?.hasError('email') && form.get('email')?.touched
+          "
+        >
+          E-mail invalido
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">Data Cadastro:</label>
@@ -52,6 +104,14 @@
           id="dataCadastro"
           formControlName="dataCadastro"
         />
+        <div
+          *ngIf="
+            form.get('dataCadastro')?.hasError('required') &&
+            form.get('dataCadastro')?.touched
+          "
+        >
+          Data de Cadastro é obrigatório
+        </div>
       </div>
     </form>
 
