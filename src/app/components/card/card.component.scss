@@ -1,0 +1,31 @@
+.card {
+  background-color: var(--color-neutral-white);
+  color: var(--color-brand-primary-medium);
+  width: 382px;
+  height: 286px;
+  border-radius: 60px 0 60px 60px;
+  font-size: var(--fontsize-paragraph);
+  font-weight: var(--fontweight-bold);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.message {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-size: var(--fontsize-paragraph-02);
+}
+
+.btn {
+  width: 146px;
+}
+
+@media screen and (max-width: 540px) {
+  .card {
+    width: 342px;
+    height: 246px;
+  }
+}

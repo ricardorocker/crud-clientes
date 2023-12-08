@@ -5,6 +5,18 @@
   padding: 28px 70px;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 700;
+  opacity: 0;
+  animation: showGradually 0.5s ease forwards;
+}
+
 .container-client {
   width: 1060px;
 }
@@ -35,7 +47,7 @@
 }
 
 .error::before {
-  content: '';
+  content: "";
   background-image: url(../../../../assets/attention-icon.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -43,6 +55,25 @@
   height: 20px;
   margin-right: 4px;
   display: inline-block;
+}
+
+.success-card {
+  position: absolute;
+  top: 154px;
+  z-index: 1000;
+  opacity: 0;
+  animation: showGradually 1s ease 0.5s forwards;
+}
+
+@keyframes showGradually {
+  from {
+    opacity: 0;
+    transform: 0%;
+  }
+  to {
+    opacity: 1;
+    transform: 100%;
+  }
 }
 
 @media screen and (max-width: 1200px) {

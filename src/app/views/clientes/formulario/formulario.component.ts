@@ -14,6 +14,7 @@ import { catchError, of, switchMap } from 'rxjs';
 })
 export class FormularioComponent {
   form: FormGroup;
+  showCard: boolean = false;
 
   constructor(
     private router: Router,
@@ -36,7 +37,7 @@ export class FormularioComponent {
         .save(this.form.value)
         .pipe(
           switchMap(() => {
-            this.router.navigateByUrl('clientes');
+            this.showCard = true;
             return of(null);
           }),
           catchError((error) => {
@@ -65,5 +66,13 @@ export class FormularioComponent {
     }
 
     return '';
+  }
+
+  onCardClick() {
+    this.router.navigateByUrl('clientes');
+  }
+
+  onOverlayClick(event: Event) {
+    event.stopPropagation();
   }
 }

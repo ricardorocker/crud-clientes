@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListagemComponent } from './views/clientes/listagem/listagem.component';
 import { FormularioComponent } from './views/clientes/formulario/formulario.component';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
     NavbarComponent,
     ListagemComponent,
     FormularioComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
