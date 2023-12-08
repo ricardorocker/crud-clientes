@@ -39,6 +39,14 @@
         >
           CPF é obrigatório
         </div>
+        <div
+          *ngIf="
+            (form.get('cpf')?.value | cpfValidator) !== 'válido' &&
+            form.get('cpf')?.touched
+          "
+        >
+          {{ form.get('cpf')?.value | cpfValidator }}
+        </div>
       </div>
       <div class="form-group col">
         <label class="label">Data Nascimento:</label>

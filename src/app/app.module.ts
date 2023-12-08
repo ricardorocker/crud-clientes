@@ -10,6 +10,7 @@ import { ListagemComponent } from './views/clientes/listagem/listagem.component'
 import { FormularioComponent } from './views/clientes/formulario/formulario.component';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 import { SobrenomeValidatorPipe } from './pipes/sobrenome-validator.pipe';
+import { CpfValidatorPipe } from './pipes/cpf-validator.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SobrenomeValidatorPipe } from './pipes/sobrenome-validator.pipe';
     ListagemComponent,
     FormularioComponent,
     SobrenomeValidatorPipe,
+    CpfValidatorPipe,
   ],
   imports: [
     BrowserModule,
