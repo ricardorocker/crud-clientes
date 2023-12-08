@@ -17,6 +17,51 @@
       "rendaMensal": 17400,
       "email": "lira.petrucia@gmail.com",
       "dataCadastro": "09/12/2023"
+    },
+    {
+      "nome": "RICARDO ROSA ROCKER",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-09",
+      "rendaMensal": 244400,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "2023-12-08",
+      "id": 3
+    },
+    {
+      "nome": "RICARDO ROSA ROCKER",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-09",
+      "rendaMensal": 2400000,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "2023-12-08",
+      "id": 4
+    },
+    {
+      "nome": "RICARDO ROSA ROCKER",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-09",
+      "rendaMensal": 2444000,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "2023-12-08",
+      "id": 5
+    },
+    {
+      "nome": "RICARDO ROSA ROCKER",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-09",
+      "rendaMensal": 244000,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "2023-12-08",
+      "id": 6
+    },
+    {
+      "nome": "RICARDO ROSA ROCKER",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-09",
+      "rendaMensal": 244000,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "",
+      "id": 7
     }
   ]
 }

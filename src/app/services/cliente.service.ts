@@ -24,15 +24,15 @@ export class ClienteService {
     );
   }
 
-  update(cliente: Cliente): Observable<any> {
-    return this.http.put(this.aprUrl, cliente);
+  update(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(this.aprUrl, cliente);
   }
 
   save(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<any>(this.aprUrl, cliente);
+    return this.http.post<Cliente>(this.aprUrl, cliente);
   }
 
-  delete(): Observable<any> {
-    return this.http.delete(this.aprUrl);
+  delete(): Observable<Cliente> {
+    return this.http.delete<Cliente>(this.aprUrl);
   }
 }

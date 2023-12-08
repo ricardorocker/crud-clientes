@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { idadeValidator } from 'src/app/validators/idade.validator';
 import { nomeValidator } from 'src/app/validators/nome.validator';
 import { cpfValidator } from 'src/app/validators/cpf.validator';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { catchError, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-formulario',
@@ -13,7 +15,11 @@ import { cpfValidator } from 'src/app/validators/cpf.validator';
 export class FormularioComponent {
   form: FormGroup;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private clienteService: ClienteService
+  ) {
     this.form = this.formBuilder.group({
       nome: ['', [Validators.required, nomeValidator()]],
       cpf: ['', [Validators.required, cpfValidator()]],
@@ -24,13 +30,22 @@ export class FormularioComponent {
     });
   }
 
-  redirect(): void {
-    this.router.navigateByUrl('clientes');
-  }
-
   onSubmit() {
-    console.log(this.form);
-    this.router.navigateByUrl('clientes');
+    if (this.form.valid) {
+      this.clienteService
+        .save(this.form.value)
+        .pipe(
+          switchMap(() => {
+            this.router.navigateByUrl('clientes');
+            return of(null);
+          }),
+          catchError((error) => {
+            console.log('Erro ao adicionar cliente: ', error);
+            return of(null);
+          })
+        )
+        .subscribe();
+    }
   }
 
   getErrorMessage(controlName: string, labelName?: string): string {
