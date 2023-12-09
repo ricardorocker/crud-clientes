@@ -15,6 +15,8 @@ export class ListagemComponent {
   filtros: Filtros = {};
   clienteSelecionado?: Cliente | null;
   showCard: boolean = false;
+  feedbackMessage: string = '';
+  successMessage: boolean = true;
 
   constructor(private router: Router, private clienteService: ClienteService) {
     this.clientes$ = this.clienteService.getAll();
@@ -29,10 +31,18 @@ export class ListagemComponent {
       this.clienteSelecionado === cliente ? null : cliente;
   }
 
+  showFeedback(message: string, successMessage: boolean): void {
+    this.feedbackMessage = message;
+    this.successMessage = successMessage;
+    this.showCard = true;
+  }
+
   visualizar(): void {
     if (this.clienteSelecionado) {
       const clienteId = this.clienteSelecionado.id;
       this.router.navigate(['/clientes/formulario', clienteId]);
+    } else {
+      this.showFeedback('Selecione um cliente para visualiza-lo.', false);
     }
   }
 
@@ -41,8 +51,10 @@ export class ListagemComponent {
       const clienteId = this.clienteSelecionado.id;
       this.clienteService.delete(clienteId).subscribe(() => {
         this.clientes$ = this.clienteService.getAll();
-        this.showCard = true;
+        this.showFeedback('Cliente removido com sucesso!', true);
       });
+    } else {
+      this.showFeedback('Selecione um cliente para remove-lo.', false);
     }
   }
 

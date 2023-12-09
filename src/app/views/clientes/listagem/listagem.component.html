@@ -90,7 +90,8 @@
     <app-card
       *ngIf="showCard"
       (okClick)="onCardClick()"
-      feedbackMessage="Cliente removido com sucesso!"
+      [feedbackMessage]="feedbackMessage"
+      [successMessage]="successMessage"
     ></app-card>
   </div>
 </div>

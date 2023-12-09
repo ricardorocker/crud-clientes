@@ -1,7 +1,19 @@
 <div class="card">
-  <img src="../../../assets/success-icon.png" alt="Success Icon" width="57" />
+  <img
+    *ngIf="successMessage; else attentionIcon"
+    src="../../../assets/success-icon.png"
+    alt="Success Icon"
+    width="57"
+  />
+  <ng-template #attentionIcon>
+    <img
+      src="../../../assets/attention-circle-icon.png"
+      alt="Attention Icon"
+      width="57"
+    />
+  </ng-template>
   <ng-container>
-      <p class="message">{{ feedbackMessage }}</p>
+    <p class="message">{{ feedbackMessage }}</p>
   </ng-container>
 
   <button class="btn btn-primary" (click)="onOkClick()">OK</button>
