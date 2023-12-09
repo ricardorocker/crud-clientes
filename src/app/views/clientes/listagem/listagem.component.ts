@@ -13,16 +13,25 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class ListagemComponent {
   clientes$: Observable<Cliente[]>;
   filtros: Filtros = {};
+  clienteSelecionado?: Cliente | null;
 
   constructor(private router: Router, private clienteService: ClienteService) {
     this.clientes$ = this.clienteService.getAll();
   }
 
-  redirect(): void {
-    this.router.navigate(['/clientes/formulario']);
+  visualizar(): void {
+    if (this.clienteSelecionado) {
+      const clienteId = this.clienteSelecionado.id;
+      this.router.navigate(['/clientes/formulario', clienteId]);
+    }
   }
 
   filtrar(): void {
     this.clientes$ = this.clienteService.filter(this.filtros);
+  }
+
+  selecionarCliente(cliente: Cliente): void {
+    this.clienteSelecionado =
+      this.clienteSelecionado === cliente ? null : cliente;
   }
 }

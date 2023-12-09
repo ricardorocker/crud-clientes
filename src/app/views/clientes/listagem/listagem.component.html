@@ -33,14 +33,18 @@
           />
         </div>
         <button class="filter" (click)="filtrar()">
-          <img src="../../../../assets/search-icon.png" alt="Search Icon" width="24"/>
+          <img
+            src="../../../../assets/search-icon.png"
+            alt="Search Icon"
+            width="24"
+          />
         </button>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" (click)="redirect()">
+        <button class="btn btn-primary" routerLink="/clientes/formulario">
           {{ "Adicionar Cliente" | uppercase }}
         </button>
-        <button class="btn btn-primary" (click)="redirect()">
+        <button class="btn btn-primary" (click)="visualizar()">
           {{ "Visualizar" | uppercase }}
         </button>
         <button class="btn btn-primary">{{ "Remover" | uppercase }}</button>
@@ -62,7 +66,15 @@
         [ngClass]="'tb-row tb-data ' + (i % 2 ? 'row-even' : 'row-odd')"
       >
         <tr>
-          <td class="col-1"><input type="checkbox" class="checkbox" /></td>
+          <td class="col-1">
+            <input
+              type="checkbox"
+              class="checkbox"
+              [id]="cliente.id"
+              [checked]="cliente === clienteSelecionado"
+              (change)="selecionarCliente(cliente)"
+            />
+          </td>
           <td class="col-3">{{ cliente.nome }}</td>
           <td class="col-2">{{ cliente.cpf }}</td>
           <td class="col-2">{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
