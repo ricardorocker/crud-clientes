@@ -35,6 +35,33 @@
       "email": "ricardo.santos.rocker@gmail.com",
       "dataCadastro": "2023-12-08",
       "id": 4
+    },
+    {
+      "nome": "",
+      "cpf": "",
+      "dataNascimento": "",
+      "rendaMensal": "",
+      "email": "",
+      "dataCadastro": "",
+      "id": 5
+    },
+    {
+      "nome": "",
+      "cpf": "",
+      "dataNascimento": "",
+      "rendaMensal": "",
+      "email": "",
+      "dataCadastro": "",
+      "id": 6
+    },
+    {
+      "nome": "Ricardinho Rocker",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-04",
+      "rendaMensal": 7000,
+      "email": "ricardinho@gmail.com",
+      "dataCadastro": "2023-12-08",
+      "id": 7
     }
   ]
 }

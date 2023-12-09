@@ -101,6 +101,18 @@ input[type="checkbox"]:checked::before {
   background-color: var(--color-neutral-lightest);
 }
 
+.filter {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px) {
   .container-list,
   .heading {

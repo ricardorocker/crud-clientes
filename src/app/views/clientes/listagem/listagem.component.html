@@ -6,7 +6,12 @@
       <div class="filters">
         <div class="form-group">
           <label class="label">Nome Cliente:</label>
-          <input class="input" type="text" placeholder="Digite o nome"/>
+          <input
+            class="input"
+            type="text"
+            placeholder="Digite o nome"
+            [(ngModel)]="filtros.nome"
+          />
         </div>
         <div class="form-group">
           <label class="label">CPF:</label>
@@ -16,12 +21,20 @@
             mask="000.000.000-00"
             id="cpf"
             placeholder="000.000.000-00"
+            [(ngModel)]="filtros.cpf"
           />
         </div>
         <div class="form-group">
           <label class="label">Data Nascimento:</label>
-          <input class="input" type="date" />
+          <input
+            class="input"
+            type="date"
+            [(ngModel)]="filtros.dataNascimento"
+          />
         </div>
+        <button class="filter" (click)="filtrar()">
+          <img src="../../../../assets/search-icon.png" alt="Search Icon" width="24"/>
+        </button>
       </div>
       <div class="actions">
         <button class="btn btn-primary" (click)="redirect()">
@@ -52,7 +65,7 @@
           <td class="col-1"><input type="checkbox" class="checkbox" /></td>
           <td class="col-3">{{ cliente.nome }}</td>
           <td class="col-2">{{ cliente.cpf }}</td>
-          <td class="col-2">{{ cliente.dataCadastro | date: 'dd/MM/yyy' }}</td>
+          <td class="col-2">{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
           <td class="col-2">{{ cliente.rendaMensal | currency : "BRL" }}</td>
         </tr>
       </div>
