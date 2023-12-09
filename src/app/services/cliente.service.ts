@@ -15,6 +15,10 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.apiUrl);
   }
 
+  getPaginateData(page: number): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiUrl}?_page=${page}&_limit=5`);
+  }
+
   getById(idCliente: number): Observable<Cliente | {}> {
     return this.getAll().pipe(
       map((clientes: Cliente[]) => {
@@ -37,7 +41,7 @@ export class ClienteService {
   }
 
   filter(filtros: any): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.apiUrl).pipe(
+    return this.getAll().pipe(
       map((clientes) => {
         return clientes.filter((cliente: any) => {
           return Object.keys(filtros).every((key) => {

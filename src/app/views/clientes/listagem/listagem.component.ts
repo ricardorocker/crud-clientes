@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, catchError, of, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { Filtros } from 'src/app/models/filtros';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -11,19 +11,34 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./listagem.component.scss'],
 })
 export class ListagemComponent {
-  clientes$: Observable<Cliente[]>;
   filtros: Filtros = {};
   clienteSelecionado?: Cliente | null;
   showCard: boolean = false;
   feedbackMessage: string = '';
   successMessage: boolean = true;
+  currentPage$ = new BehaviorSubject<number>(1);
+  currentPageData$!: Observable<any>;
 
   constructor(private router: Router, private clienteService: ClienteService) {
-    this.clientes$ = this.clienteService.getAll();
+    this.currentPageData$ = this.currentPage$.pipe(
+      switchMap((currentPage) =>
+        this.clienteService.getPaginateData(currentPage)
+      )
+    );
+  }
+
+  nextPage() {
+    this.currentPage$.next(this.currentPage$.value + 1);
+  }
+
+  prevPage() {
+    if (this.currentPage$.value > 1) {
+      this.currentPage$.next(this.currentPage$.value - 1);
+    }
   }
 
   filtrar(): void {
-    this.clientes$ = this.clienteService.filter(this.filtros);
+    this.currentPageData$ = this.clienteService.filter(this.filtros);
   }
 
   selecionarCliente(cliente: Cliente): void {
@@ -50,7 +65,11 @@ export class ListagemComponent {
     if (this.clienteSelecionado) {
       const clienteId = this.clienteSelecionado.id;
       this.clienteService.delete(clienteId).subscribe(() => {
-        this.clientes$ = this.clienteService.getAll();
+        this.currentPageData$ = this.currentPage$.pipe(
+          switchMap((currentPage) =>
+            this.clienteService.getPaginateData(currentPage)
+          )
+        );
         this.showFeedback('Cliente removido com sucesso!', true);
       });
     } else {
