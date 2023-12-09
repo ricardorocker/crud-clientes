@@ -1,7 +1,9 @@
 <div class="container">
   <div class="overlay" *ngIf="showCard" (click)="onOverlayClick($event)"></div>
   <div class="container-client">
-    <div class="heading">{{ "Adicionar Cliente" | uppercase }}</div>
+    <div class="heading">
+      {{ (idCliente ? "Visualizar Cliente" : "Adicionar Cliente") | uppercase }}
+    </div>
 
     <form [formGroup]="form" class="grid-container">
       <div class="control">
@@ -21,7 +23,9 @@
       </div>
       <div class="control">
         <div [ngClass]="'form-group ' + (idCliente ? 'disabled' : '')">
-          <label [ngClass]="'label ' + (idCliente ? 'disabled' : '')">CPF:</label>
+          <label [ngClass]="'label ' + (idCliente ? 'disabled' : '')"
+            >CPF:</label
+          >
           <input
             [ngClass]="'input ' + (idCliente ? 'disabled' : '')"
             type="text"
@@ -105,7 +109,7 @@
         {{ "Cancelar" | uppercase }}
       </button>
       <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-        {{ "Adicionar" | uppercase }}
+        {{ (idCliente ? "Editar" : "Adicionar") | uppercase }}
       </button>
     </div>
   </div>
@@ -113,7 +117,11 @@
     <app-card
       *ngIf="showCard"
       (okClick)="onCardClick()"
-      [feedbackMessage]="'Cliente adicionado com sucesso!'"
+      [feedbackMessage]="
+        idCliente
+          ? 'Cliente alterado com sucesso!'
+          : 'Cliente adicionado com sucesso!'
+      "
     ></app-card>
   </div>
 </div>

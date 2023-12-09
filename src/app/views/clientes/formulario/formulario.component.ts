@@ -10,7 +10,7 @@ import { idadeValidator } from 'src/app/validators/idade.validator';
 import { nomeValidator } from 'src/app/validators/nome.validator';
 import { cpfValidator } from 'src/app/validators/cpf.validator';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { catchError, of, switchMap, tap } from 'rxjs';
+import { catchError, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-formulario',
@@ -30,6 +30,7 @@ export class FormularioComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
+      id: [],
       nome: ['', [Validators.required, nomeValidator()]],
       cpf: ['', [Validators.required, cpfValidator()]],
       dataNascimento: ['', [Validators.required, idadeValidator()]],
@@ -56,25 +57,34 @@ export class FormularioComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      this.clienteService
-        .save(this.form.value)
-        .pipe(
-          switchMap(() => {
-            this.showCard = true;
-            return of(null);
-          }),
-          catchError((error) => {
-            console.log('Erro ao adicionar cliente: ', error);
-            return of(null);
-          })
-        )
-        .subscribe();
-    } else {
+    if (!this.form.valid) {
       Object.values(this.form.controls).forEach((control: AbstractControl) => {
         control.markAsTouched();
       });
+
+      return;
     }
+
+    const clienteForm = this.form.value;
+
+    const onSaveOrUpdate = this.idCliente
+      ? this.clienteService.update(clienteForm.id, clienteForm)
+      : this.clienteService.save(clienteForm);
+
+    onSaveOrUpdate
+      .pipe(
+        tap(() => {
+          this.showCard = true;
+        }),
+        catchError((error) => {
+          const errorMessage = `Erro ao ${
+            this.idCliente ? 'editar' : 'adicionar'
+          } cliente: `;
+          console.log(errorMessage, error);
+          return of(null);
+        })
+      )
+      .subscribe();
   }
 
   getErrorMessage(controlName: string, labelName?: string): string {
