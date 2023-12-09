@@ -10,6 +10,7 @@ import { ListagemComponent } from './views/clientes/listagem/listagem.component'
 import { FormularioComponent } from './views/clientes/formulario/formulario.component';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 import { CardComponent } from './components/card/card.component';
+import { CpfPipe } from './pipes/cpf.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CardComponent } from './components/card/card.component';
     ListagemComponent,
     FormularioComponent,
     CardComponent,
+    CpfPipe,
   ],
   imports: [
     BrowserModule,

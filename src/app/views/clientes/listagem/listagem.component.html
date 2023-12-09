@@ -79,7 +79,7 @@
             />
           </td>
           <td class="col-3">{{ cliente.nome }}</td>
-          <td class="col-2">{{ cliente.cpf }}</td>
+          <td class="col-2">{{ cliente.cpf | cpf}}</td>
           <td class="col-2">{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
           <td class="col-2">{{ cliente.rendaMensal | currency : "BRL" }}</td>
         </tr>
