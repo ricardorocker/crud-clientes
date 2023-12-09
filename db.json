@@ -10,14 +10,6 @@
       "dataCadastro": "04/09/1995"
     },
     {
-      "id": 2,
-      "nome": "Petrucia Lira",
-      "dataNascimento": "1997-10-18",
-      "rendaMensal": 17400,
-      "email": "lira.petrucia@gmail.com",
-      "dataCadastro": "09/12/2023"
-    },
-    {
       "nome": "RICARDO ROSA ROCKER",
       "cpf": "44267283800",
       "dataNascimento": "1995-09-09",
@@ -27,48 +19,6 @@
       "id": 3
     },
     {
-      "id": 4,
-      "nome": "RICARDO SANTOS ROCKER",
-      "dataNascimento": "1995-09-09",
-      "rendaMensal": 2400000,
-      "email": "ricardo.santos.rocker@gmail.com",
-      "dataCadastro": "2023-12-08"
-    },
-    {
-      "nome": "",
-      "cpf": "",
-      "dataNascimento": "",
-      "rendaMensal": "",
-      "email": "",
-      "dataCadastro": "",
-      "id": 5
-    },
-    {
-      "nome": "",
-      "cpf": "",
-      "dataNascimento": "",
-      "rendaMensal": "",
-      "email": "",
-      "dataCadastro": "",
-      "id": 6
-    },
-    {
-      "id": 7,
-      "nome": "Ricardinho Santos Rocker",
-      "dataNascimento": "1995-09-04",
-      "rendaMensal": 7000,
-      "email": "ricardinho@gmail.com",
-      "dataCadastro": "2023-12-08"
-    },
-    {
-      "nome": "Petrucia Lira Soares",
-      "dataNascimento": "2000-07-12",
-      "rendaMensal": 17400,
-      "email": "lira.petrucia@gmail.com",
-      "dataCadastro": "09/12/2023",
-      "id": 8
-    },
-    {
       "id": 9,
       "nome": "Rosa Soares",
       "cpf": "12345648711",
@@ -76,6 +26,15 @@
       "rendaMensal": 8940,
       "email": "rosa.soares@gmail.com",
       "dataCadastro": "2023-12-09"
+    },
+    {
+      "id": 10,
+      "nome": "rosangela santos rocker",
+      "cpf": "15713645454",
+      "dataNascimento": "1971-10-18",
+      "rendaMensal": 12400,
+      "email": "rosangela.rocker@gmail.com",
+      "dataCadastro": "2023-12-15"
     }
   ]
 }

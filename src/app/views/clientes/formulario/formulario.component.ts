@@ -57,6 +57,7 @@ export class FormularioComponent implements OnInit {
   }
 
   onSubmit() {
+    this.showCard = true;
     if (!this.form.valid) {
       Object.values(this.form.controls).forEach((control: AbstractControl) => {
         control.markAsTouched();

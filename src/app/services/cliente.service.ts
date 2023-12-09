@@ -32,8 +32,8 @@ export class ClienteService {
     return this.http.post<Cliente>(this.apiUrl, cliente);
   }
 
-  delete(): Observable<Cliente> {
-    return this.http.delete<Cliente>(this.apiUrl);
+  delete(idCliente: number): Observable<Cliente> {
+    return this.http.delete<Cliente>(`${this.apiUrl}/${idCliente}`);
   }
 
   filter(filtros: any): Observable<Cliente[]> {

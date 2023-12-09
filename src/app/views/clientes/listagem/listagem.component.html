@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="overlay" *ngIf="showCard" (click)="onOverlayClick($event)"></div>
   <div class="heading">{{ "Clientes" | uppercase }}</div>
 
   <div class="container-list">
@@ -47,7 +48,9 @@
         <button class="btn btn-primary" (click)="visualizar()">
           {{ "Visualizar" | uppercase }}
         </button>
-        <button class="btn btn-primary">{{ "Remover" | uppercase }}</button>
+        <button class="btn btn-primary" (click)="remover()">
+          {{ "Remover" | uppercase }}
+        </button>
       </div>
     </div>
 
@@ -82,5 +85,12 @@
         </tr>
       </div>
     </table>
+  </div>
+  <div class="card-component">
+    <app-card
+      *ngIf="showCard"
+      (okClick)="onCardClick()"
+      feedbackMessage="Cliente removido com sucesso!"
+    ></app-card>
   </div>
 </div>
