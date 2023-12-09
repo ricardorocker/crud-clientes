@@ -1,25 +1,33 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { idadeValidator } from 'src/app/validators/idade.validator';
 import { nomeValidator } from 'src/app/validators/nome.validator';
 import { cpfValidator } from 'src/app/validators/cpf.validator';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { catchError, of, switchMap } from 'rxjs';
+import { catchError, of, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
   form: FormGroup;
   showCard: boolean = false;
+  idCliente?: number;
+  sub: any;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
       nome: ['', [Validators.required, nomeValidator()]],
@@ -28,6 +36,22 @@ export class FormularioComponent {
       rendaMensal: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       dataCadastro: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.sub = this.route.params.subscribe((params) => {
+      this.idCliente = +params['id'];
+      if (this.idCliente) {
+        this.clienteService
+          .getById(this.idCliente)
+          .pipe(
+            tap((cliente) => {
+              this.form.patchValue(cliente);
+            })
+          )
+          .subscribe(() => this.form.get('cpf')?.disable());
+      }
     });
   }
 

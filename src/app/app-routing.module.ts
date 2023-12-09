@@ -14,7 +14,7 @@ const routes: Routes = [
     redirectTo: 'clientes/formulario/',
     pathMatch: 'full',
   },
-  { path: 'clientes/formulario/:userId', component: FormularioComponent },
+  { path: 'clientes/formulario/:id', component: FormularioComponent },
   { path: '', redirectTo: 'clientes', pathMatch: 'full' },
 ];
 

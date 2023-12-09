@@ -20,10 +20,10 @@
         </div>
       </div>
       <div class="control">
-        <div class="form-group">
-          <label class="label">CPF:</label>
+        <div [ngClass]="'form-group ' + (idCliente ? 'disabled' : '')">
+          <label [ngClass]="'label ' + (idCliente ? 'disabled' : '')">CPF:</label>
           <input
-            class="input"
+            [ngClass]="'input ' + (idCliente ? 'disabled' : '')"
             type="text"
             mask="000.000.000-00"
             id="cpf"

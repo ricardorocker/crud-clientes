@@ -15,11 +15,11 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.apiUrl);
   }
 
-  getById(idCliente: number): Observable<Cliente | null> {
+  getById(idCliente: number): Observable<Cliente | {}> {
     return this.getAll().pipe(
       map((clientes: Cliente[]) => {
         const cliente = clientes.find((c: Cliente) => c.id === idCliente);
-        return cliente || null;
+        return cliente || {};
       })
     );
   }

@@ -65,6 +65,11 @@
   animation: showGradually 1s ease 0.5s forwards;
 }
 
+.disabled {
+  background-color: var(--color-neutral-lightest);
+  color: var(--color-neutral-medium);
+}
+
 @keyframes showGradually {
   from {
     opacity: 0;
