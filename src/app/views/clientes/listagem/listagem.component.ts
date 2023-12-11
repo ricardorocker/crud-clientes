@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, filter, switchMap, take } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { Filtros } from 'src/app/models/filtros';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -18,17 +18,31 @@ export class ListagemComponent {
   successMessage: boolean = true;
   currentPage$ = new BehaviorSubject<number>(1);
   currentPageData$!: Observable<any>;
+  clientsPerPage: number = 6;
 
   constructor(private router: Router, private clienteService: ClienteService) {
     this.currentPageData$ = this.currentPage$.pipe(
       switchMap((currentPage) =>
-        this.clienteService.getPaginateData(currentPage)
+        this.clienteService.getPaginateData(currentPage, this.clientsPerPage)
       )
     );
   }
 
   nextPage() {
-    this.currentPage$.next(this.currentPage$.value + 1);
+    this.currentPage$
+      .pipe(
+        take(1),
+        switchMap((currentPage) =>
+          this.clienteService.getPaginateData(
+            currentPage + 1,
+            this.clientsPerPage
+          )
+        ),
+        filter((data) => data.length > 0)
+      )
+      .subscribe(() => {
+        this.currentPage$.next(this.currentPage$.value + 1);
+      });
   }
 
   prevPage() {
@@ -67,7 +81,10 @@ export class ListagemComponent {
       this.clienteService.delete(clienteId).subscribe(() => {
         this.currentPageData$ = this.currentPage$.pipe(
           switchMap((currentPage) =>
-            this.clienteService.getPaginateData(currentPage)
+            this.clienteService.getPaginateData(
+              currentPage,
+              this.clientsPerPage
+            )
           )
         );
         this.showFeedback('Cliente removido com sucesso!', true);

@@ -179,6 +179,42 @@
       "rendaMensal": 12400,
       "email": "rosangela.rocker@gmail.com",
       "dataCadastro": "2023-12-15"
+    },
+    {
+      "id": 21,
+      "nome": "Ricardo Santos Rocker",
+      "cpf": "44254883800",
+      "dataNascimento": "1995-09-04",
+      "rendaMensal": 24400,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "2023-09-09"
+    },
+    {
+      "id": 22,
+      "nome": "RICARDO ROSA ROCKER",
+      "cpf": "44267283800",
+      "dataNascimento": "1995-09-09",
+      "rendaMensal": 244400,
+      "email": "ricardo.santos.rocker@gmail.com",
+      "dataCadastro": "2023-12-08"
+    },
+    {
+      "id": 23,
+      "nome": "Rosa Soares",
+      "cpf": "12345648711",
+      "dataNascimento": "1971-10-15",
+      "rendaMensal": 8940,
+      "email": "rosa.soares@gmail.com",
+      "dataCadastro": "2023-12-09"
+    },
+    {
+      "id": 24,
+      "nome": "rosangela santos rocker",
+      "cpf": "15713645454",
+      "dataNascimento": "1971-10-18",
+      "rendaMensal": 12400,
+      "email": "rosangela.rocker@gmail.com",
+      "dataCadastro": "2023-12-15"
     }
   ]
 }

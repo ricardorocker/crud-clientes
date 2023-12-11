@@ -32,7 +32,8 @@
 
 table {
   width: 100%;
-  padding: 38px 0;
+  padding-top: 38px;
+  padding-bottom: 20px;
 }
 
 .col-1 {
@@ -110,6 +111,30 @@ input[type="checkbox"]:checked::before {
 
 .filter:hover {
   transform: scale(1.2);
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  font-size: var(--fontsize-paragraph-03);
+}
+
+.pagination button {
+  background-color: var(--color-neutral-white);
+  color: var(--color-brand-primary-light);
+  border: 1px solid var(--color-neutral-lightest);
+  border-radius: 8px;
+  width: 34px;
+  height: 38px;
+}
+
+.current-page {
+  border: 1px solid var(--color-neutral-lightest)!important;
+}
+
+.btn-pagination button:hover {
+  background-color: var(--color-neutral-lightest);
   cursor: pointer;
 }
 
