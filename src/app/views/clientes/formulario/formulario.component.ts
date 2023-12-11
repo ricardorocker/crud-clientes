@@ -46,12 +46,10 @@ export class FormularioComponent implements OnInit {
       if (this.idCliente) {
         this.clienteService
           .getById(this.idCliente)
-          .pipe(
-            tap((cliente) => {
-              this.form.patchValue(cliente);
-            })
-          )
-          .subscribe(() => this.form.get('cpf')?.disable());
+          .pipe(tap((cliente) => this.form.patchValue(cliente)))
+          .subscribe(() => {
+            this.form.get('cpf')?.disable({ onlySelf: true, emitEvent: false });
+          });
       }
     });
   }
@@ -66,6 +64,7 @@ export class FormularioComponent implements OnInit {
     }
 
     const clienteForm = this.form.value;
+    console.log(clienteForm);
 
     const onSaveOrUpdate = this.idCliente
       ? this.clienteService.update(clienteForm.id, clienteForm)

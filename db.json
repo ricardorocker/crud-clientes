@@ -3,7 +3,7 @@
     {
       "id": 1,
       "nome": "Ricardo Santos Rocker",
-      "cpf": "44265723131",
+      "cpf": "12345678911",
       "dataNascimento": "1995-09-04",
       "rendaMensal": 24400,
       "email": "ricardo.santos.rocker@gmail.com",
@@ -12,11 +12,73 @@
     {
       "id": 2,
       "nome": "Petrucia Lira Soares",
-      "cpf": "12145645646",
+      "cpf": "98765432198",
       "dataNascimento": "1997-12-10",
       "rendaMensal": 7900,
       "email": "lirapetrucia@gmail.com",
       "dataCadastro": "2023-12-14"
+    },
+    {
+      "id": 3,
+      "nome": "Mateus Dias",
+      "cpf": "45464545454",
+      "dataNascimento": "2000-09-04",
+      "rendaMensal": 5412,
+      "email": "mateus.dia@gmail.com",
+      "dataCadastro": "2023-12-01"
+    },
+    {
+      "id": 4,
+      "nome": "Alana Conde",
+      "cpf": "74897987897",
+      "dataNascimento": "1992-08-04",
+      "rendaMensal": 2544,
+      "email": "alana.conde@gmail.com",
+      "dataCadastro": "2023-12-02"
+    },
+    {
+      "id": 5,
+      "nome": "Gustavo Henrique",
+      "cpf": "12345647892",
+      "dataNascimento": "2005-04-08",
+      "rendaMensal": 2100,
+      "email": "gustavo@gmail.com",
+      "dataCadastro": "2023-12-25"
+    },
+    {
+      "id": 6,
+      "nome": "Amanda Santos",
+      "cpf": "45645612312",
+      "dataNascimento": "2000-05-29",
+      "rendaMensal": 5500,
+      "email": "amanda.santos@gmail.com",
+      "dataCadastro": "2023-12-12"
+    },
+    {
+      "id": 7,
+      "nome": "Fernando Henrique",
+      "cpf": "12121211212",
+      "dataNascimento": "1989-05-05",
+      "rendaMensal": 5440,
+      "email": "fernando.henrique@gmail.com",
+      "dataCadastro": "2023-12-14"
+    },
+    {
+      "id": 8,
+      "nome": "Nathalia Silva",
+      "cpf": "65658989898",
+      "dataNascimento": "2001-05-05",
+      "rendaMensal": 12000,
+      "email": "nathalia.silva@gmail.com",
+      "dataCadastro": "2023-12-22"
+    },
+    {
+      "id": 9,
+      "nome": "ricardo rocker santos",
+      "dataNascimento": "1995-10-07",
+      "rendaMensal": 11000,
+      "email": "ricarddd@gmail.com",
+      "dataCadastro": "2023-11-30"
     }
   ]
 }
