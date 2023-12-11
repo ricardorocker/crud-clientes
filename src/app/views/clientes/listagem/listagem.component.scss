@@ -122,20 +122,22 @@ input[type="checkbox"]:checked::before {
 
 .pagination button {
   background-color: var(--color-neutral-white);
-  color: var(--color-brand-primary-light);
+  color: var(--color-primary);
   border: 1px solid var(--color-neutral-lightest);
   border-radius: 8px;
   width: 34px;
   height: 38px;
 }
 
-.current-page {
-  border: 1px solid var(--color-neutral-lightest) !important;
-}
-
-.btn-pagination button:hover {
+.pagination button:hover {
   background-color: var(--color-neutral-lightest);
   cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: var(--color-neutral-lightest);
+  opacity: 50%;
+  cursor: default;
 }
 
 .asc::after {

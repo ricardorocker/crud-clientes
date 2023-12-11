@@ -111,15 +111,15 @@
     </table>
     <div class="pagination">
       <div class="btn-pagination">
-        <button (click)="prevPage()">«</button>
+        <button (click)="prevPage()" [disabled]="disablePrevButton">«</button>
       </div>
       <div *ngIf="currentPage">
-        <button class="current-page">
+        <button disabled>
           {{ currentPage }}
         </button>
       </div>
       <div class="btn-pagination">
-        <button (click)="nextPage()">»</button>
+        <button (click)="nextPage()" [disabled]="disableNextButton">»</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { Filtros } from 'src/app/models/filtros';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -22,6 +22,8 @@ export class ListagemComponent implements OnInit {
   field?: string;
   order?: string;
   ascButton: boolean = true;
+  disableNextButton: boolean = false;
+  disablePrevButton: boolean = true;
 
   constructor(private router: Router, private clienteService: ClienteService) {}
 
@@ -39,15 +41,38 @@ export class ListagemComponent implements OnInit {
     );
   }
 
+  changePage(offset: number) {
+    const newPage = this.currentPage + offset;
+
+    this.clienteService
+      .getPaginateData(
+        newPage,
+        this.clientsPerPage,
+        this.field,
+        this.order,
+        this.filtros
+      )
+      .subscribe((data) => {
+        if (data.length > 0) {
+          this.currentPageData$ = of(data);
+          this.currentPage = newPage;
+          this.disablePrevButton = this.currentPage === 1;
+          this.disableNextButton = data.length < this.clientsPerPage;
+        } else {
+          this.disableNextButton = true;
+        }
+      });
+  }
+
   nextPage() {
-    this.currentPage += 1;
-    this.loadData();
+    if (!this.disableNextButton) {
+      this.changePage(1);
+    }
   }
 
   prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage -= 1;
-      this.loadData();
+    if (!this.disablePrevButton) {
+      this.changePage(-1);
     }
   }
 
