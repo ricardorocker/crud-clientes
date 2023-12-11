@@ -34,7 +34,8 @@ export class ListagemComponent implements OnInit {
       this.currentPage,
       this.clientsPerPage,
       this.field,
-      this.order
+      this.order,
+      this.filtros
     );
   }
 
@@ -51,7 +52,8 @@ export class ListagemComponent implements OnInit {
   }
 
   filtrar(): void {
-    this.currentPageData$ = this.clienteService.filter(this.filtros);
+    this.currentPage = 1;
+    this.loadData();
   }
 
   sort(field: string): void {

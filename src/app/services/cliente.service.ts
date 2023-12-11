@@ -19,13 +19,22 @@ export class ClienteService {
     page: number,
     clientsPerPage: number,
     field?: string,
-    order?: string
+    order?: string,
+    filters?: any
   ): Observable<Cliente[]> {
-    const params = new HttpParams()
+    let params = new HttpParams()
       .set('_page', page.toString())
       .set('_limit', clientsPerPage.toString())
       .set('_sort', field ? field : '')
       .set('_order', order ? order : '');
+
+    if (filters) {
+      Object.keys(filters).forEach((key) => {
+        if (filters[key]) {
+          params = params.set(`${key}_like`, filters[key]);
+        }
+      });
+    }
 
     return this.http.get<Cliente[]>(this.apiUrl, { params });
   }
@@ -49,19 +58,5 @@ export class ClienteService {
 
   delete(idCliente: number): Observable<Cliente> {
     return this.http.delete<Cliente>(`${this.apiUrl}/${idCliente}`);
-  }
-
-  filter(filtros: any): Observable<Cliente[]> {
-    return this.getAll().pipe(
-      map((clientes) => {
-        return clientes.filter((cliente: any) => {
-          return Object.keys(filtros).every((key) => {
-            const filterValue = filtros[key]?.toLowerCase();
-            const clienteValue = String(cliente[key]).toLowerCase();
-            return clienteValue.includes(filterValue);
-          });
-        });
-      })
-    );
   }
 }
