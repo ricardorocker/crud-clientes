@@ -58,33 +58,41 @@
       <div class="tb-row tb-header">
         <tr>
           <th class="col-1" role="row"></th>
-          <th
-            class="col-3"
-            (click)="sort('nome')"
-            [ngClass]="ascButton ? 'asc' : 'desc'"
-          >
+          <th class="col-3 nome-column">
             NOME
+            <button
+              class="btn-order"
+              [ngClass]="orderState.nome ? 'asc' : 'desc'"
+              aria-label="Order Button"
+              (click)="sort('nome')"
+            ></button>
           </th>
-          <th
-            class="col-2"
-            (click)="sort('cpf')"
-            [ngClass]="ascButton ? 'asc' : 'desc'"
-          >
+          <th class="col-2">
             CPF
+            <button
+              class="btn-order"
+              [ngClass]="orderState.cpf ? 'asc' : 'desc'"
+              aria-label="Order Button"
+              (click)="sort('cpf')"
+            ></button>
           </th>
-          <th
-            class="col-2"
-            (click)="sort('dataCadastro')"
-            [ngClass]="ascButton ? 'asc' : 'desc'"
-          >
+          <th class="col-2">
             DATA CADASTRO
+            <button
+              class="btn-order"
+              [ngClass]="orderState.dataCadastro ? 'asc' : 'desc'"
+              aria-label="Order Button"
+              (click)="sort('dataCadastro')"
+            ></button>
           </th>
-          <th
-            class="col-2"
-            (click)="sort('rendaMensal')"
-            [ngClass]="ascButton ? 'asc' : 'desc'"
-          >
+          <th class="col-2">
             RENDA MENSAL
+            <button
+              class="btn-order"
+              [ngClass]="orderState.rendaMensal ? 'asc' : 'desc'"
+              aria-label="Order Button"
+              (click)="sort('rendaMensal')"
+            ></button>
           </th>
         </tr>
       </div>

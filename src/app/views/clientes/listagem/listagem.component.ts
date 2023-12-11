@@ -21,9 +21,14 @@ export class ListagemComponent implements OnInit {
   clientsPerPage: number = 6;
   field?: string;
   order?: string;
-  ascButton: boolean = true;
   disableNextButton: boolean = false;
   disablePrevButton: boolean = true;
+  orderState: any = {
+    nome: true,
+    cpf: true,
+    dataCadastro: true,
+    rendaMensal: true,
+  };
 
   constructor(private router: Router, private clienteService: ClienteService) {}
 
@@ -82,8 +87,8 @@ export class ListagemComponent implements OnInit {
   }
 
   sort(field: string): void {
-    this.ascButton ? (this.order = 'asc') : (this.order = 'desc');
-    this.ascButton = !this.ascButton;
+    this.orderState[field] ? (this.order = 'asc') : (this.order = 'desc');
+    this.orderState[field] = !this.orderState[field];
     this.field = field;
 
     if (this.currentPage !== 1) this.currentPage = 1;
