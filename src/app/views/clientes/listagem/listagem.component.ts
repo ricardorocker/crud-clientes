@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, filter, switchMap, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { Filtros } from 'src/app/models/filtros';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -10,49 +10,58 @@ import { ClienteService } from 'src/app/services/cliente.service';
   templateUrl: './listagem.component.html',
   styleUrls: ['./listagem.component.scss'],
 })
-export class ListagemComponent {
+export class ListagemComponent implements OnInit {
   filtros: Filtros = {};
   clienteSelecionado?: Cliente | null;
   showCard: boolean = false;
   feedbackMessage: string = '';
   successMessage: boolean = true;
-  currentPage$ = new BehaviorSubject<number>(1);
+  currentPage: number = 1;
   currentPageData$!: Observable<any>;
   clientsPerPage: number = 6;
+  field?: string;
+  order?: string;
+  ascButton: boolean = true;
 
-  constructor(private router: Router, private clienteService: ClienteService) {
-    this.currentPageData$ = this.currentPage$.pipe(
-      switchMap((currentPage) =>
-        this.clienteService.getPaginateData(currentPage, this.clientsPerPage)
-      )
+  constructor(private router: Router, private clienteService: ClienteService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
+    this.currentPageData$ = this.clienteService.getPaginateData(
+      this.currentPage,
+      this.clientsPerPage,
+      this.field,
+      this.order
     );
   }
 
   nextPage() {
-    this.currentPage$
-      .pipe(
-        take(1),
-        switchMap((currentPage) =>
-          this.clienteService.getPaginateData(
-            currentPage + 1,
-            this.clientsPerPage
-          )
-        ),
-        filter((data) => data.length > 0)
-      )
-      .subscribe(() => {
-        this.currentPage$.next(this.currentPage$.value + 1);
-      });
+    this.currentPage += 1;
+    this.loadData();
   }
 
   prevPage() {
-    if (this.currentPage$.value > 1) {
-      this.currentPage$.next(this.currentPage$.value - 1);
+    if (this.currentPage > 1) {
+      this.currentPage -= 1;
+      this.loadData();
     }
   }
 
   filtrar(): void {
     this.currentPageData$ = this.clienteService.filter(this.filtros);
+  }
+
+  sort(field: string): void {
+    this.ascButton ? (this.order = 'asc') : (this.order = 'desc');
+    this.ascButton = !this.ascButton;
+    this.field = field;
+
+    if (this.currentPage !== 1) this.currentPage = 1;
+
+    this.loadData();
   }
 
   selecionarCliente(cliente: Cliente): void {
@@ -79,14 +88,7 @@ export class ListagemComponent {
     if (this.clienteSelecionado) {
       const clienteId = this.clienteSelecionado.id;
       this.clienteService.delete(clienteId).subscribe(() => {
-        this.currentPageData$ = this.currentPage$.pipe(
-          switchMap((currentPage) =>
-            this.clienteService.getPaginateData(
-              currentPage,
-              this.clientsPerPage
-            )
-          )
-        );
+        this.loadData();
         this.showFeedback('Cliente removido com sucesso!', true);
       });
     } else {

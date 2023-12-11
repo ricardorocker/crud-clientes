@@ -15,10 +15,18 @@ export class ClienteService {
     return this.http.get<Cliente[]>(this.apiUrl);
   }
 
-  getPaginateData(page: number, clientsPerPage: number): Observable<Cliente[]> {
+  getPaginateData(
+    page: number,
+    clientsPerPage: number,
+    field?: string,
+    order?: string
+  ): Observable<Cliente[]> {
     const params = new HttpParams()
       .set('_page', page.toString())
-      .set('_limit', clientsPerPage.toString());
+      .set('_limit', clientsPerPage.toString())
+      .set('_sort', field ? field : '')
+      .set('_order', order ? order : '');
+
     return this.http.get<Cliente[]>(this.apiUrl, { params });
   }
 

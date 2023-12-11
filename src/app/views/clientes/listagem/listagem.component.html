@@ -58,10 +58,34 @@
       <div class="tb-row tb-header">
         <tr>
           <th class="col-1" role="row"></th>
-          <th class="col-3">NOME</th>
-          <th class="col-2">CPF</th>
-          <th class="col-2">DATA CADASTRO</th>
-          <th class="col-2">RENDA MENSAL</th>
+          <th
+            class="col-3"
+            (click)="sort('nome')"
+            [ngClass]="ascButton ? 'asc' : 'desc'"
+          >
+            NOME
+          </th>
+          <th
+            class="col-2"
+            (click)="sort('cpf')"
+            [ngClass]="ascButton ? 'asc' : 'desc'"
+          >
+            CPF
+          </th>
+          <th
+            class="col-2"
+            (click)="sort('dataCadastro')"
+            [ngClass]="ascButton ? 'asc' : 'desc'"
+          >
+            DATA CADASTRO
+          </th>
+          <th
+            class="col-2"
+            (click)="sort('rendaMensal')"
+            [ngClass]="ascButton ? 'asc' : 'desc'"
+          >
+            RENDA MENSAL
+          </th>
         </tr>
       </div>
       <div
@@ -89,7 +113,8 @@
       <div class="btn-pagination">
         <button (click)="prevPage()">«</button>
       </div>
-      <div *ngIf="currentPage$ | async as currentPage">
+      <div *ngIf="currentPage">
+      <!-- <div *ngIf="currentPage$ | async as currentPage"> -->
         <button class="current-page">
           {{ currentPage }}
         </button>
