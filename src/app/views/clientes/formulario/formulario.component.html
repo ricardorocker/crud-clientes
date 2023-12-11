@@ -33,6 +33,7 @@
             id="cpf"
             placeholder="000.000.000-00"
             formControlName="cpf"
+            [readOnly]="idCliente"
           />
         </div>
         <div class="error" *ngIf="getErrorMessage('cpf')">

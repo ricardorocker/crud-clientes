@@ -47,9 +47,7 @@ export class FormularioComponent implements OnInit {
         this.clienteService
           .getById(this.idCliente)
           .pipe(tap((cliente) => this.form.patchValue(cliente)))
-          .subscribe(() => {
-            this.form.get('cpf')?.disable({ onlySelf: true, emitEvent: false });
-          });
+          .subscribe();
       }
     });
   }
