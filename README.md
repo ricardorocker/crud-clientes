@@ -1,17 +1,8 @@
 # Projeto Angular de CRUD de Clientes
 Bem-vindo ao repositório do projeto CRUD de Clientes desenvolvido em Angular. Este projeto inclui funcionalidades de listagem, formulário, estilos personalizados, serviços, pipes, validadores, modelos e componentes reutilizáveis.
 
-## Capturas de Tela
-
-### Tela Principal
-![image](https://github.com/ricardorocker/crud-clientes/assets/76121782/c7b0ad1b-884f-4bdb-85ed-691b58d3f487)
-
-### Tela de Edição
-![image](https://github.com/ricardorocker/crud-clientes/assets/76121782/a1d90b42-e1f0-401f-99ca-9a3aaa3d67e7)
-
-### Card de feedback
-![image](https://github.com/ricardorocker/crud-clientes/assets/76121782/6f987216-73d3-416a-86d3-b6f3f85cdcdc)
-
+## [Video de Demonstração](https://youtu.be/5HQ8zZEAdSc "Video de Demonstração")
+![Demonstração](https://repository-images.githubusercontent.com/728357052/5c410c7c-cdf6-4354-8546-ed95be0bf3c7)
 
 ## Estrutura do Projeto
 ### Views
@@ -39,6 +30,19 @@ Bem-vindo ao repositório do projeto CRUD de Clientes desenvolvido em Angular. E
 ### Componentes Reutilizáveis
 - Card
 - Navbar
+
+
+## Capturas de Tela
+
+### Tela Principal
+![image](https://github.com/ricardorocker/crud-clientes/assets/76121782/c7b0ad1b-884f-4bdb-85ed-691b58d3f487)
+
+### Tela de Edição
+![image](https://github.com/ricardorocker/crud-clientes/assets/76121782/a1d90b42-e1f0-401f-99ca-9a3aaa3d67e7)
+
+### Card de feedback
+![image](https://github.com/ricardorocker/crud-clientes/assets/76121782/6f987216-73d3-416a-86d3-b6f3f85cdcdc)
+
 
 ## Conhecimentos Técnicos Utilizados
 - Criação de protótipo personalizado em Figma
