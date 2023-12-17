@@ -57,8 +57,8 @@
     <table *ngIf="currentPageData$ | async as clientes">
       <div class="tb-row tb-header">
         <tr>
-          <th class="col-1" role="row"></th>
-          <th class="col-3 nome-column">
+          <th role="row"></th>
+          <th class="nome-column">
             NOME
             <button
               class="btn-order"
@@ -67,7 +67,7 @@
               (click)="sort('nome')"
             ></button>
           </th>
-          <th class="col-2">
+          <th>
             CPF
             <button
               class="btn-order"
@@ -76,7 +76,7 @@
               (click)="sort('cpf')"
             ></button>
           </th>
-          <th class="col-2">
+          <th>
             DATA CADASTRO
             <button
               class="btn-order"
@@ -85,7 +85,7 @@
               (click)="sort('dataCadastro')"
             ></button>
           </th>
-          <th class="col-2">
+          <th>
             RENDA MENSAL
             <button
               class="btn-order"
@@ -101,7 +101,7 @@
         [ngClass]="'tb-row tb-data ' + (i % 2 ? 'row-even' : 'row-odd')"
       >
         <tr>
-          <td class="col-1">
+          <td>
             <input
               type="checkbox"
               class="checkbox"
@@ -110,10 +110,10 @@
               (change)="selecionarCliente(cliente)"
             />
           </td>
-          <td class="col-3">{{ cliente.nome }}</td>
-          <td class="col-2">{{ cliente.cpf | cpf }}</td>
-          <td class="col-2">{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
-          <td class="col-2">{{ cliente.rendaMensal | currency : "BRL" }}</td>
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.cpf | cpf }}</td>
+          <td>{{ cliente.dataCadastro | date : "dd/MM/yyy" }}</td>
+          <td>{{ cliente.rendaMensal | currency : "BRL" }}</td>
         </tr>
       </div>
     </table>

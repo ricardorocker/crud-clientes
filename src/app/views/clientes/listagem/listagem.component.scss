@@ -36,16 +36,19 @@ table {
   padding-bottom: 20px;
 }
 
-.col-1 {
-  width: 2%;
+th,
+td {
+  width: 190px;
 }
 
-.col-2 {
-  width: 10%;
+th:first-child,
+td:first-child {
+  width: 34px;
 }
 
-.col-3 {
-  width: 18%;
+th:nth-child(2),
+td:nth-child(2) {
+  width: 342px;
 }
 
 .tb-row {
@@ -163,7 +166,7 @@ input[type="checkbox"]:checked::before {
 @media screen and (max-width: 1200px) {
   .container-list,
   .heading {
-    width: 100%!important;
+    width: 100% !important;
   }
 }
 
