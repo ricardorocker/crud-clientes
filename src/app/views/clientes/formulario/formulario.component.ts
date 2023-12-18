@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import {
   AbstractControl,
   FormBuilder,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { idadeValidator } from 'src/app/validators/idade.validator';
-import { nomeValidator } from 'src/app/validators/nome.validator';
-import { cpfValidator } from 'src/app/validators/cpf.validator';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
+import { cpfValidator } from '../../../validators/cpf.validator';
+import { idadeValidator } from '../../../validators/idade.validator';
+import { nomeValidator } from '../../../validators/nome.validator';
+import { ClienteService } from './../../../services/cliente.service';
 
 @Component({
   selector: 'app-formulario',

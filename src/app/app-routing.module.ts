@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListagemComponent } from './views/clientes/listagem/listagem.component';
 import { FormularioComponent } from './views/clientes/formulario/formulario.component';
+import { ListagemComponent } from './views/clientes/listagem/listagem.component';
 
 const routes: Routes = [
   {

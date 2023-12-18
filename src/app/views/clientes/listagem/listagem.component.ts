@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { Cliente } from 'src/app/models/cliente';
-import { Filtros } from 'src/app/models/filtros';
-import { ClienteService } from 'src/app/services/cliente.service';
+import { Cliente } from './../../../models/cliente';
+import { Filtros } from './../../../models/filtros';
+import { ClienteService } from './../../../services/cliente.service';
 
 @Component({
   selector: 'app-listagem',
