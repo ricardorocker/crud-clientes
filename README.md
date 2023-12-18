@@ -82,7 +82,7 @@ npm install
 ng serve
 
 # Acesse a aplicação no navegador em http://localhost:4200/
-````
+```
 
 #### Iniciar o JSON Server (API Fake)
 

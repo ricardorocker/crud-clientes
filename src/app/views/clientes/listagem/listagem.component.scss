@@ -140,7 +140,7 @@ input[type="checkbox"]:checked::before {
 
 .pagination button:disabled {
   background-color: var(--color-neutral-lightest);
-  opacity: 50%;
+  opacity: 0.5;
   cursor: default;
 }
 

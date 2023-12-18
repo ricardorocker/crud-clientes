@@ -19,7 +19,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
     ListagemComponent,
     FormularioComponent,
     CardComponent,
-    CpfPipe
+    CpfPipe,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
     HttpClientModule,
     ReactiveFormsModule,
     NgxMaskDirective,
-    FormsModule
+    FormsModule,
   ],
   providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent],
