@@ -199,3 +199,30 @@ input[type="checkbox"]:checked::before {
     padding: 12px 10px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  th,
+  td {
+    min-width: 120px;
+  }
+
+  th:first-child,
+  td:first-child {
+    min-width: 18px;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    min-width: 120px;
+  }
+
+  .tb-row {
+    width: 500px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
