@@ -62,7 +62,6 @@ export class FormularioComponent implements OnInit {
     }
 
     const clienteForm = this.form.value;
-    console.log(clienteForm);
 
     const onSaveOrUpdate = this.idCliente
       ? this.clienteService.update(clienteForm.id, clienteForm)

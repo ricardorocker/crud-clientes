@@ -17,7 +17,7 @@ export class ListagemComponent implements OnInit {
   feedbackMessage: string = '';
   successMessage: boolean = true;
   currentPage: number = 1;
-  currentPageData$!: Observable<any>;
+  currentPageData$!: Observable<Cliente[]>;
   clientsPerPage: number = 6;
   field?: string;
   order?: string;
@@ -81,7 +81,7 @@ export class ListagemComponent implements OnInit {
     }
   }
 
-  filtrar(): void {
+  filter(): void {
     this.currentPage = 1;
     this.loadData();
   }
@@ -96,7 +96,7 @@ export class ListagemComponent implements OnInit {
     this.loadData();
   }
 
-  selecionarCliente(cliente: Cliente): void {
+  selectClient(cliente: Cliente): void {
     this.clienteSelecionado =
       this.clienteSelecionado === cliente ? null : cliente;
   }
@@ -107,7 +107,7 @@ export class ListagemComponent implements OnInit {
     this.showCard = true;
   }
 
-  visualizar(): void {
+  viewClient(): void {
     if (this.clienteSelecionado) {
       const clienteId = this.clienteSelecionado.id;
       this.router.navigate(['/clientes/formulario', clienteId]);
@@ -116,7 +116,7 @@ export class ListagemComponent implements OnInit {
     }
   }
 
-  remover(): void {
+  remove(): void {
     if (this.clienteSelecionado) {
       const clienteId = this.clienteSelecionado.id;
       this.clienteService.delete(clienteId).subscribe(() => {

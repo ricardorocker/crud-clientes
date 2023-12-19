@@ -33,7 +33,7 @@
             [(ngModel)]="filtros.dataNascimento"
           />
         </div>
-        <button class="filter" (click)="filtrar()">
+        <button class="filter" (click)="filter()">
           <img
             src="../../../../assets/search-icon.png"
             alt="Search Icon"
@@ -45,10 +45,10 @@
         <button class="btn btn-primary" routerLink="/clientes/formulario">
           {{ "Adicionar Cliente" | uppercase }}
         </button>
-        <button class="btn btn-primary" (click)="visualizar()">
+        <button class="btn btn-primary" (click)="viewClient()">
           {{ "Visualizar" | uppercase }}
         </button>
-        <button class="btn btn-primary" (click)="remover()">
+        <button class="btn btn-primary" (click)="remove()">
           {{ "Remover" | uppercase }}
         </button>
       </div>
@@ -107,7 +107,7 @@
               class="checkbox"
               [id]="cliente.id"
               [checked]="cliente === clienteSelecionado"
-              (change)="selecionarCliente(cliente)"
+              (change)="selectClient(cliente)"
             />
           </td>
           <td>{{ cliente.nome }}</td>
