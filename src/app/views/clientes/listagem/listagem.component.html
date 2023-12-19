@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <table *ngIf="currentPageData$ | async as clientes">
+    <table *ngIf="currentPageData$ | async as clientes; else noClients">
       <div class="tb-row tb-header">
         <tr>
           <th role="row"></th>
@@ -117,7 +117,7 @@
         </tr>
       </div>
     </table>
-    <div class="pagination">
+    <div class="pagination" *ngIf="currentPageData$ | async as clientes">
       <div class="btn-pagination">
         <button (click)="prevPage()" [disabled]="disablePrevButton">«</button>
       </div>
@@ -131,6 +131,11 @@
       </div>
     </div>
   </div>
+  <ng-template #noClients>
+    <div class="no-client">
+      Nenhum cliente cadastrado.
+    </div>
+  </ng-template>
   <div class="card-component">
     <app-card
       *ngIf="showCard"
