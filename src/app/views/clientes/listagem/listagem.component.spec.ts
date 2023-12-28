@@ -15,7 +15,13 @@ describe('ListagemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it(`#${ListagemComponent.prototype.changePage.name} should change page corret when changed offset`, () => {
+    const offset = 1;
+
+    component.changePage(offset);
+
+    expect(component.currentPage).toBe(2);
+    expect(component.disablePrevButton).toBe(false);
+    expect(component.disableNextButton).toBe(false);
   });
 });
